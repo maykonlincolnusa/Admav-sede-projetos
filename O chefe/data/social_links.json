@@ -1,0 +1,59 @@
+{
+  "instagram": "https://www.instagram.com/admavsede/",
+  "facebook": "https://www.facebook.com/ADMAVSEDE/?locale=pt_BR",
+  "tiktok": null,
+  "youtube": "https://www.youtube.com/@ADMAVSEDE1",
+  "branches": [
+    {
+      "key": "mav_recreio",
+      "name": "MAV Church Recreio",
+      "visit_note": "Filial para visitas na regiao do Recreio.",
+      "instagram": "https://www.instagram.com/mavchurchrecreio/",
+      "facebook": null,
+      "tiktok": null,
+      "youtube": "https://www.youtube.com/@mavchurchrecreio"
+    },
+    {
+      "key": "admav_campo_grande",
+      "name": "ADMAV Campo Grande",
+      "visit_note": "Filial para visitas na regiao de Campo Grande.",
+      "instagram": "https://www.instagram.com/admavcampogrande/",
+      "facebook": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  ],
+  "leadership": [
+    {
+      "role": "Pastor Presidente",
+      "name": "Pr. Rogerio Barros",
+      "instagram": "https://www.instagram.com/pastorrogeriobarros/",
+      "facebook": null,
+      "tiktok": null,
+      "youtube": null
+    },
+    {
+      "role": "Pastora",
+      "name": "Pra. Amanda Barros",
+      "instagram": "https://www.instagram.com/pastoraamandabarros/",
+      "facebook": null,
+      "tiktok": null,
+      "youtube": null
+    },
+    {
+      "role": "Pastor MAV Recreio",
+      "name": "Pr. Gabriel Simoes",
+      "instagram": "https://www.instagram.com/gabriielsiimoes/",
+      "facebook": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  ],
+  "finance": {
+    "pix_key": "06.251.957/0001-97",
+    "pix_type": "cnpj",
+    "holder_name": "ADMAV Sede",
+    "note": "Dizimo e oferta"
+  },
+  "updated_at": "2026-03-04T18:10:00+00:00"
+}

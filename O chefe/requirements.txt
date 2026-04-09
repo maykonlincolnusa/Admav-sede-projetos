@@ -1,0 +1,14 @@
+apscheduler==3.11.0
+email-validator==2.2.0
+fastapi==0.116.1
+langchain==0.3.27
+langchain-google-genai==2.1.12
+langchain-huggingface==0.3.1
+langchain-openai==0.3.31
+langgraph==0.6.6
+motor==3.7.1
+pydantic-settings==2.10.1
+pymongo==4.14.1
+python-dotenv==1.1.1
+sentence-transformers==5.1.0
+uvicorn[standard]==0.35.0

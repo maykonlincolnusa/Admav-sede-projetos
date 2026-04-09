@@ -1,0 +1,2624 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agência Kairos — Criativo para Igreja</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --espresso: #12080A;
+    --mahogany: #2D1610;
+    --sienna: #5C2E1A;
+    --caramel: #8B4A2A;
+    --warm-tan: #C4854A;
+    --gold: #C9973E;
+    --light-gold: #E8C97A;
+    --cream: #F2EAD8;
+    --parchment: #FAF5EC;
+    --white: #FFFFFF;
+    --smoke: #F0EBE0;
+    --charcoal: #1C1108;
+    --text-muted: #9C8570;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--espresso);
+    color: var(--cream);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── SCREENS ── */
+  .screen { display: none; min-height: 100vh; }
+  .screen.active { display: flex; }
+
+  /* ─────────────────────────────────────────────
+     AUTH SCREENS (Login + Cadastro)
+  ───────────────────────────────────────────── */
+  .auth-screen {
+    flex-direction: row;
+    min-height: 100vh;
+  }
+
+  .auth-left {
+    flex: 1;
+    background: var(--mahogany);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    overflow: hidden;
+  }
+
+  .auth-left::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse 80% 60% at 30% 40%, rgba(201,151,62,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 80% at 70% 70%, rgba(92,46,26,0.4) 0%, transparent 60%);
+  }
+
+  .auth-left::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9973E' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .brand-mark {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .brand-cross {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    position: relative;
+  }
+
+  .brand-cross svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 900;
+    color: var(--cream);
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+
+  .brand-name span {
+    color: var(--gold);
+  }
+
+  .brand-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  .auth-quote {
+    position: relative;
+    z-index: 2;
+    max-width: 380px;
+    text-align: center;
+  }
+
+  .auth-quote blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+
+  .auth-quote cite {
+    display: block;
+    margin-top: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .auth-teams-badge {
+    position: relative;
+    z-index: 2;
+    margin-top: 48px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background: rgba(201,151,62,0.1);
+    border: 1px solid rgba(201,151,62,0.2);
+    border-radius: 40px;
+    padding: 10px 20px;
+  }
+
+  .auth-teams-badge .dots {
+    display: flex;
+    gap: 3px;
+  }
+
+  .auth-teams-badge .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.6;
+  }
+  .auth-teams-badge .dot:first-child { opacity: 1; }
+
+  .auth-teams-badge span {
+    font-size: 13px;
+    color: var(--light-gold);
+  }
+
+  /* Right Panel */
+  .auth-right {
+    width: 480px;
+    background: var(--parchment);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 64px 56px;
+    position: relative;
+    overflow-y: auto;
+  }
+
+  .auth-right::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(180deg, transparent, var(--gold), transparent);
+    opacity: 0.6;
+  }
+
+  .form-header {
+    margin-bottom: 40px;
+  }
+
+  .form-eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--mahogany);
+    line-height: 1.15;
+  }
+
+  .form-subtitle {
+    margin-top: 8px;
+    font-size: 14px;
+    color: var(--caramel);
+    line-height: 1.5;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--sienna);
+    margin-bottom: 8px;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 14px 18px;
+    background: var(--white);
+    border: 1.5px solid rgba(92,46,26,0.15);
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: var(--mahogany);
+    outline: none;
+    transition: all 0.2s;
+  }
+
+  .form-input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,151,62,0.12);
+  }
+
+  .form-input::placeholder { color: #BBA990; }
+
+  .form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235C2E1A' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 44px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 16px;
+    background: var(--mahogany);
+    color: var(--cream);
+    border: none;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    margin-top: 8px;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--sienna), var(--caramel));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .btn-primary:hover::before { opacity: 1; }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(45,22,16,0.3); }
+  .btn-primary span { position: relative; z-index: 1; }
+
+  .form-switch {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--caramel);
+  }
+
+  .form-switch a {
+    color: var(--sienna);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--warm-tan);
+    cursor: pointer;
+  }
+
+  .form-switch a:hover { color: var(--mahogany); }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 24px 0;
+    color: #BBA990;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(92,46,26,0.15);
+  }
+
+  /* ─────────────────────────────────────────────
+     DASHBOARD
+  ───────────────────────────────────────────── */
+  #screen-dashboard {
+    flex-direction: row;
+    background: #0E0804;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    width: 260px;
+    background: var(--mahogany);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    position: relative;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .sidebar::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9973E' fill-opacity='0.03'%3E%3Cpath d='M20 3.333L36.667 30H3.333L20 3.333z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .sidebar-logo {
+    padding: 28px 24px 20px;
+    border-bottom: 1px solid rgba(201,151,62,0.1);
+    position: relative;
+    z-index: 1;
+  }
+
+  .sidebar-logo .logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-icon {
+    width: 36px; height: 36px;
+    background: var(--gold);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-icon svg { width: 20px; height: 20px; }
+
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--cream);
+    letter-spacing: -0.5px;
+  }
+
+  .logo-text span { color: var(--gold); }
+
+  .sidebar-team {
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(201,151,62,0.1);
+    position: relative;
+    z-index: 1;
+  }
+
+  .team-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .team-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 8px 12px;
+    background: rgba(201,151,62,0.08);
+    border-radius: 8px;
+    border: 1px solid rgba(201,151,62,0.15);
+    transition: background 0.2s;
+  }
+
+  .team-selector:hover { background: rgba(201,151,62,0.14); }
+
+  .team-avatar {
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, var(--sienna), var(--warm-tan));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--cream);
+    flex-shrink: 0;
+  }
+
+  .team-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--cream);
+    flex: 1;
+  }
+
+  .team-chevron { color: var(--text-muted); font-size: 10px; }
+
+  .sidebar-nav {
+    padding: 20px 16px;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    overflow-y: auto;
+  }
+
+  .nav-section {
+    margin-bottom: 28px;
+  }
+
+  .nav-section-title {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 0 8px;
+    margin-bottom: 6px;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: rgba(242,234,216,0.65);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 2px;
+    position: relative;
+  }
+
+  .nav-item:hover { background: rgba(201,151,62,0.08); color: var(--cream); }
+  .nav-item.active {
+    background: rgba(201,151,62,0.14);
+    color: var(--light-gold);
+  }
+  .nav-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 20%; bottom: 20%;
+    width: 3px;
+    background: var(--gold);
+    border-radius: 0 2px 2px 0;
+  }
+
+  .nav-icon { width: 18px; height: 18px; opacity: 0.8; flex-shrink: 0; }
+  .nav-item.active .nav-icon { opacity: 1; }
+
+  .nav-badge {
+    margin-left: auto;
+    background: var(--gold);
+    color: var(--mahogany);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 10px;
+  }
+
+  .sidebar-user {
+    padding: 16px 20px;
+    border-top: 1px solid rgba(201,151,62,0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .sidebar-user:hover { background: rgba(201,151,62,0.06); }
+
+  .user-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--sienna), var(--caramel));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--cream);
+    border: 2px solid rgba(201,151,62,0.3);
+    flex-shrink: 0;
+  }
+
+  .user-info { flex: 1; overflow: hidden; }
+
+  .user-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--cream);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .user-role {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  /* MAIN CONTENT */
+  .main-content {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #0E0804;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* TOP BAR */
+  .topbar {
+    padding: 16px 32px;
+    background: rgba(14,8,4,0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,151,62,0.08);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .topbar-title {
+    flex: 1;
+  }
+
+  .topbar-title h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--cream);
+  }
+
+  .topbar-title p {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 1px;
+  }
+
+  .topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .topbar-btn {
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+  }
+
+  .topbar-btn.outline {
+    background: transparent;
+    border: 1.5px solid rgba(201,151,62,0.3);
+    color: var(--light-gold);
+  }
+
+  .topbar-btn.outline:hover {
+    border-color: var(--gold);
+    background: rgba(201,151,62,0.08);
+  }
+
+  .topbar-btn.solid {
+    background: var(--gold);
+    color: var(--mahogany);
+  }
+
+  .topbar-btn.solid:hover {
+    background: var(--light-gold);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(201,151,62,0.3);
+  }
+
+  .notif-btn {
+    width: 38px; height: 38px;
+    background: rgba(201,151,62,0.08);
+    border: 1.5px solid rgba(201,151,62,0.15);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: all 0.2s;
+    position: relative;
+  }
+
+  .notif-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .notif-dot {
+    position: absolute;
+    top: 6px; right: 6px;
+    width: 7px; height: 7px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 1.5px solid #0E0804;
+  }
+
+  /* PANELS (tab sections) */
+  .panel { display: none; padding: 28px 32px; flex: 1; }
+  .panel.active { display: block; }
+
+  /* ── OVERVIEW PANEL ── */
+  .welcome-banner {
+    background: linear-gradient(135deg, var(--mahogany) 0%, #3D1F13 60%, rgba(201,151,62,0.15) 100%);
+    border-radius: 16px;
+    padding: 36px 40px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 28px;
+    border: 1px solid rgba(201,151,62,0.15);
+  }
+
+  .welcome-banner::before {
+    content: '';
+    position: absolute;
+    right: -40px; top: -40px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(201,151,62,0.15) 0%, transparent 70%);
+  }
+
+  .welcome-cross {
+    position: absolute;
+    right: 48px; top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.08;
+  }
+
+  .welcome-banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .welcome-banner p {
+    font-size: 15px;
+    color: rgba(242,234,216,0.7);
+    position: relative;
+    z-index: 1;
+    max-width: 500px;
+  }
+
+  .welcome-meta {
+    margin-top: 20px;
+    display: flex;
+    gap: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .meta-chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--light-gold);
+  }
+
+  .meta-chip svg { opacity: 0.7; }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .stat-card {
+    background: var(--mahogany);
+    border: 1px solid rgba(201,151,62,0.1);
+    border-radius: 14px;
+    padding: 20px 22px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: default;
+  }
+
+  .stat-card:hover {
+    border-color: rgba(201,151,62,0.3);
+    transform: translateY(-2px);
+  }
+
+  .stat-card::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 60px; height: 60px;
+    background: radial-gradient(circle at top right, rgba(201,151,62,0.1), transparent 70%);
+  }
+
+  .stat-icon {
+    width: 38px; height: 38px;
+    background: rgba(201,151,62,0.12);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    color: var(--gold);
+  }
+
+  .stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  .stat-change {
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .stat-change.up { color: #7FC47A; }
+  .stat-change.down { color: #E07070; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 20px;
+  }
+
+  .section-card {
+    background: var(--mahogany);
+    border: 1px solid rgba(201,151,62,0.1);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .section-card-header {
+    padding: 18px 22px;
+    border-bottom: 1px solid rgba(201,151,62,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .section-card-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--cream);
+  }
+
+  .section-card-header span {
+    font-size: 12px;
+    color: var(--gold);
+    cursor: pointer;
+  }
+
+  .section-card-body { padding: 18px 22px; }
+
+  /* Content calendar */
+  .calendar-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(201,151,62,0.06);
+    cursor: pointer;
+    transition: background 0.15s;
+    border-radius: 6px;
+    padding-left: 6px;
+  }
+
+  .calendar-row:last-child { border-bottom: none; }
+  .calendar-row:hover { background: rgba(201,151,62,0.05); }
+
+  .cal-date {
+    width: 40px; height: 40px;
+    background: rgba(201,151,62,0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .cal-date .day {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .cal-date .month {
+    font-size: 9px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+  }
+
+  .cal-info { flex: 1; }
+  .cal-title { font-size: 14px; font-weight: 600; color: var(--cream); }
+  .cal-meta { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+  .cal-platform {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .cal-platform.ig { background: rgba(180,80,160,0.2); color: #D47ABE; }
+  .cal-platform.tt { background: rgba(0,200,180,0.12); color: #4ECDC4; }
+  .cal-platform.yt { background: rgba(220,60,60,0.15); color: #E07070; }
+  .cal-platform.kw { background: rgba(255,140,0,0.12); color: #FFB347; }
+
+  /* Teams */
+  .team-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.15s;
+    margin-bottom: 6px;
+  }
+
+  .team-card:hover { background: rgba(201,151,62,0.07); }
+
+  .team-card-avatar {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--cream);
+    flex-shrink: 0;
+  }
+
+  .team-card-info { flex: 1; }
+  .team-card-name { font-size: 14px; font-weight: 600; color: var(--cream); }
+  .team-card-city { font-size: 12px; color: var(--text-muted); }
+  .team-card-status { width: 8px; height: 8px; border-radius: 50%; background: #7FC47A; }
+
+  /* ── CONECTAR PANEL ── */
+  .connect-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+
+  .connect-card {
+    background: var(--mahogany);
+    border: 1.5px solid rgba(201,151,62,0.1);
+    border-radius: 16px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    transition: all 0.25s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .connect-card:hover {
+    border-color: rgba(201,151,62,0.35);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+  }
+
+  .connect-card.connected {
+    border-color: rgba(127,196,122,0.3);
+    background: linear-gradient(135deg, var(--mahogany), rgba(127,196,122,0.05));
+  }
+
+  .connect-card.connected::before {
+    content: '✓';
+    position: absolute;
+    top: 12px; right: 14px;
+    width: 22px; height: 22px;
+    background: #7FC47A;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    color: #1A3D1A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 22px;
+  }
+
+  .platform-icon {
+    width: 58px; height: 58px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+  }
+
+  .platform-icon.ig { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
+  .platform-icon.tt { background: linear-gradient(135deg, #010101, #69C9D0); }
+  .platform-icon.yt { background: #FF0000; }
+  .platform-icon.kw { background: linear-gradient(135deg, #FF8C00, #FF5500); }
+  .platform-icon.site { background: linear-gradient(135deg, var(--sienna), var(--caramel)); }
+  .platform-icon.gallery { background: linear-gradient(135deg, #4A5568, #718096); }
+  .platform-icon.video { background: linear-gradient(135deg, #2C3E50, #4A90D9); }
+
+  .platform-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--cream);
+  }
+
+  .platform-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .platform-stats {
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .connect-btn {
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1.5px solid rgba(201,151,62,0.3);
+    background: transparent;
+    color: var(--light-gold);
+    transition: all 0.2s;
+    margin-top: 4px;
+  }
+
+  .connect-btn:hover { background: rgba(201,151,62,0.12); border-color: var(--gold); }
+  .connect-btn.active { background: rgba(127,196,122,0.12); border-color: rgba(127,196,122,0.4); color: #9DE097; }
+
+  /* Upload zone */
+  .upload-zone {
+    border: 2px dashed rgba(201,151,62,0.2);
+    border-radius: 16px;
+    padding: 48px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s;
+    background: rgba(45,22,16,0.3);
+  }
+
+  .upload-zone:hover {
+    border-color: rgba(201,151,62,0.5);
+    background: rgba(201,151,62,0.04);
+  }
+
+  .upload-zone .upload-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+
+  .upload-zone h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .upload-zone p {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  /* ── AI CHAT PANEL ── */
+  .chat-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 20px;
+    height: calc(100vh - 140px);
+  }
+
+  .chat-main {
+    background: var(--mahogany);
+    border: 1px solid rgba(201,151,62,0.1);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .chat-header {
+    padding: 18px 22px;
+    border-bottom: 1px solid rgba(201,151,62,0.1);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .ai-avatar {
+    width: 42px; height: 42px;
+    background: linear-gradient(135deg, var(--sienna), var(--gold));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .chat-header-info h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--cream);
+  }
+
+  .chat-header-info p {
+    font-size: 12px;
+    color: #7FC47A;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .online-dot {
+    width: 6px; height: 6px;
+    background: #7FC47A;
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .chat-messages::-webkit-scrollbar { width: 4px; }
+  .chat-messages::-webkit-scrollbar-track { background: transparent; }
+  .chat-messages::-webkit-scrollbar-thumb { background: rgba(201,151,62,0.2); border-radius: 2px; }
+
+  .msg {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    max-width: 80%;
+    animation: msgIn 0.3s ease;
+  }
+
+  @keyframes msgIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .msg.user { align-self: flex-end; flex-direction: row-reverse; }
+
+  .msg-avatar {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  .msg-avatar.ai { background: linear-gradient(135deg, var(--sienna), var(--gold)); }
+  .msg-avatar.user { background: linear-gradient(135deg, #2C3E50, #4A6580); font-size: 12px; font-weight: 700; color: var(--cream); }
+
+  .msg-bubble {
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .msg.ai .msg-bubble {
+    background: rgba(201,151,62,0.08);
+    border: 1px solid rgba(201,151,62,0.12);
+    color: var(--cream);
+    border-radius: 4px 12px 12px 12px;
+  }
+
+  .msg.user .msg-bubble {
+    background: var(--sienna);
+    color: var(--cream);
+    border-radius: 12px 4px 12px 12px;
+  }
+
+  .msg-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .suggestion-chip {
+    padding: 5px 12px;
+    background: rgba(201,151,62,0.1);
+    border: 1px solid rgba(201,151,62,0.2);
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--light-gold);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .suggestion-chip:hover {
+    background: rgba(201,151,62,0.18);
+    border-color: var(--gold);
+  }
+
+  .chat-input-area {
+    padding: 16px 20px;
+    border-top: 1px solid rgba(201,151,62,0.1);
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+  }
+
+  .chat-input-wrap {
+    flex: 1;
+    background: rgba(201,151,62,0.06);
+    border: 1.5px solid rgba(201,151,62,0.15);
+    border-radius: 12px;
+    padding: 12px 16px;
+    transition: border-color 0.2s;
+  }
+
+  .chat-input-wrap:focus-within { border-color: rgba(201,151,62,0.4); }
+
+  .chat-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--cream);
+    resize: none;
+    min-height: 20px;
+    max-height: 120px;
+    line-height: 1.5;
+  }
+
+  .chat-input::placeholder { color: var(--text-muted); }
+
+  .chat-input-tools {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .input-tool-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 14px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: all 0.15s;
+  }
+
+  .input-tool-btn:hover { color: var(--gold); background: rgba(201,151,62,0.08); }
+
+  .chat-send-btn {
+    width: 44px; height: 44px;
+    background: var(--gold);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+
+  .chat-send-btn:hover { background: var(--light-gold); transform: scale(1.05); }
+
+  /* Chat sidebar */
+  .chat-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .chat-sidebar-card {
+    background: var(--mahogany);
+    border: 1px solid rgba(201,151,62,0.1);
+    border-radius: 14px;
+    padding: 18px;
+  }
+
+  .chat-sidebar-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 14px;
+  }
+
+  .quick-prompt {
+    padding: 9px 12px;
+    background: rgba(201,151,62,0.06);
+    border: 1px solid rgba(201,151,62,0.1);
+    border-radius: 8px;
+    font-size: 13px;
+    color: rgba(242,234,216,0.8);
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 6px;
+  }
+
+  .quick-prompt:hover {
+    background: rgba(201,151,62,0.12);
+    border-color: rgba(201,151,62,0.25);
+    color: var(--cream);
+  }
+
+  .quick-prompt:last-child { margin-bottom: 0; }
+
+  /* ── MEDIA PANEL ── */
+  .media-toolbar {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .filter-chip {
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1.5px solid rgba(201,151,62,0.15);
+    background: transparent;
+    color: rgba(242,234,216,0.65);
+  }
+
+  .filter-chip:hover { border-color: rgba(201,151,62,0.35); color: var(--cream); }
+  .filter-chip.active {
+    background: rgba(201,151,62,0.12);
+    border-color: var(--gold);
+    color: var(--light-gold);
+  }
+
+  .media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .media-card {
+    background: var(--mahogany);
+    border: 1px solid rgba(201,151,62,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .media-card:hover {
+    border-color: rgba(201,151,62,0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+
+  .media-thumb {
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, var(--sienna) 0%, var(--mahogany) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    position: relative;
+  }
+
+  .media-type-badge {
+    position: absolute;
+    bottom: 8px; left: 8px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+
+  .media-card-info {
+    padding: 12px 14px;
+  }
+
+  .media-card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cream);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .media-card-meta {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 3px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* ── SETTINGS PANEL ── */
+  .settings-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 24px;
+    min-height: 500px;
+  }
+
+  .settings-nav { display: flex; flex-direction: column; gap: 4px; }
+
+  .settings-nav-item {
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    color: rgba(242,234,216,0.65);
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .settings-nav-item:hover { background: rgba(201,151,62,0.06); color: var(--cream); }
+  .settings-nav-item.active { background: rgba(201,151,62,0.1); color: var(--light-gold); }
+
+  .settings-content {
+    background: var(--mahogany);
+    border: 1px solid rgba(201,151,62,0.1);
+    border-radius: 14px;
+    padding: 28px;
+  }
+
+  .settings-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 6px;
+  }
+
+  .settings-section-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+  }
+
+  .settings-field { margin-bottom: 22px; }
+
+  .settings-field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .settings-input {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(201,151,62,0.05);
+    border: 1.5px solid rgba(201,151,62,0.1);
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--cream);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .settings-input:focus { border-color: rgba(201,151,62,0.4); }
+
+  .toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(201,151,62,0.06);
+  }
+
+  .toggle-row:last-child { border-bottom: none; }
+
+  .toggle-info h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cream);
+  }
+
+  .toggle-info p {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .toggle {
+    width: 44px; height: 24px;
+    background: rgba(201,151,62,0.15);
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.25s;
+    flex-shrink: 0;
+  }
+
+  .toggle.on { background: var(--gold); }
+
+  .toggle::after {
+    content: '';
+    position: absolute;
+    top: 3px; left: 3px;
+    width: 18px; height: 18px;
+    background: var(--cream);
+    border-radius: 50%;
+    transition: left 0.25s;
+  }
+
+  .toggle.on::after { left: 23px; }
+
+  /* ── LOADING ── */
+  .loading-screen {
+    position: fixed; inset: 0;
+    background: var(--espresso);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.6s;
+  }
+
+  .loading-screen.hidden { opacity: 0; pointer-events: none; }
+
+  .loader-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--cream);
+    margin-bottom: 6px;
+  }
+
+  .loader-brand span { color: var(--gold); }
+
+  .loader-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+  }
+
+  .loader-bar {
+    width: 200px; height: 2px;
+    background: rgba(201,151,62,0.15);
+    border-radius: 1px;
+    overflow: hidden;
+  }
+
+  .loader-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--sienna), var(--gold));
+    border-radius: 1px;
+    animation: load 1.8s ease forwards;
+  }
+
+  @keyframes load {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    background: var(--mahogany);
+    border: 1px solid rgba(201,151,62,0.25);
+    border-radius: 12px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--cream);
+    z-index: 9000;
+    transform: translateY(80px);
+    opacity: 0;
+    transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    max-width: 340px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+
+  .toast.show { transform: translateY(0); opacity: 1; }
+  .toast-icon { font-size: 18px; }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(201,151,62,0.2); border-radius: 3px; }
+
+  /* ── Typing indicator ── */
+  .typing-indicator { display: flex; gap: 4px; align-items: center; padding: 4px 0; }
+  .typing-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: typingBounce 1.2s infinite; }
+  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes typingBounce { 0%, 60%, 100% { transform: translateY(0); opacity: 0.4; } 30% { transform: translateY(-5px); opacity: 1; } }
+
+  @media (max-width: 900px) {
+    .auth-left { display: none; }
+    .auth-right { width: 100%; padding: 48px 32px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .two-col { grid-template-columns: 1fr; }
+    .connect-grid { grid-template-columns: repeat(2, 1fr); }
+    .chat-layout { grid-template-columns: 1fr; }
+    .chat-sidebar { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Loading Screen -->
+<div class="loading-screen" id="loadingScreen">
+  <div style="text-align:center">
+    <div style="margin-bottom:20px">
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="56" height="56" rx="14" fill="#C9973E"/>
+        <rect x="25" y="10" width="6" height="36" rx="3" fill="#12080A"/>
+        <rect x="10" y="22" width="36" height="6" rx="3" fill="#12080A"/>
+      </svg>
+    </div>
+    <div class="loader-brand">K<span>ai</span>ros</div>
+    <div class="loader-tagline">Criativo para a Igreja</div>
+    <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     LOGIN SCREEN
+════════════════════════════════════════ -->
+<div class="screen auth-screen active" id="screen-login">
+  <div class="auth-left">
+    <div class="brand-mark">
+      <div class="brand-cross">
+        <svg viewBox="0 0 64 64" fill="none">
+          <rect x="28" y="6" width="8" height="52" rx="4" fill="#C9973E"/>
+          <rect x="6" y="22" width="52" height="8" rx="4" fill="#C9973E"/>
+          <rect x="28" y="6" width="8" height="52" rx="4" fill="url(#cg)" opacity="0.3"/>
+          <defs>
+            <linearGradient id="cg" x1="32" y1="6" x2="32" y2="58">
+              <stop offset="0%" stop-color="white"/>
+              <stop offset="100%" stop-color="transparent"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="brand-name">K<span>ai</span>ros</div>
+      <div class="brand-tagline">Agência Criativa para a Igreja</div>
+    </div>
+
+    <div class="auth-quote">
+      <blockquote>
+        "Tudo que fizerdes, fazei de todo o coração, como para o Senhor."
+      </blockquote>
+      <cite>Colossenses 3:23</cite>
+    </div>
+
+    <div class="auth-teams-badge">
+      <div class="dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <span>10+ equipes ativas hoje</span>
+    </div>
+  </div>
+
+  <div class="auth-right">
+    <div class="form-header">
+      <div class="form-eyebrow">Acesso à plataforma</div>
+      <h2 class="form-title">Bem-vindo<br>de volta 🙏</h2>
+      <p class="form-subtitle">Entre com as credenciais da sua equipe para acessar o painel.</p>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">E-mail</label>
+      <input type="email" class="form-input" placeholder="sua@igreja.com.br" id="loginEmail">
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Senha</label>
+      <input type="password" class="form-input" placeholder="••••••••" id="loginPassword">
+    </div>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+      <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;color:#8B4A2A">
+        <input type="checkbox" style="accent-color:#C9973E"> Lembrar-me
+      </label>
+      <a style="font-size:13px;color:#8B4A2A;cursor:pointer;text-decoration:none;border-bottom:1px solid #C4854A">Esqueci a senha</a>
+    </div>
+
+    <button class="btn-primary" onclick="goToDashboard()">
+      <span>Entrar na plataforma</span>
+    </button>
+
+    <div class="divider">ou</div>
+
+    <button class="btn-primary" style="background:rgba(92,46,26,0.1);border:1.5px solid rgba(92,46,26,0.2);color:#5C2E1A;margin-top:0" onclick="showToast('🔗 Login via Google em breve!')">
+      <span style="display:flex;align-items:center;justify-content:center;gap:8px">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        Entrar com Google
+      </span>
+    </button>
+
+    <div class="form-switch">
+      Não tem conta? <a onclick="switchScreen('screen-register')">Cadastre sua equipe</a>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     REGISTER SCREEN
+════════════════════════════════════════ -->
+<div class="screen auth-screen" id="screen-register">
+  <div class="auth-left">
+    <div class="brand-mark">
+      <div class="brand-cross">
+        <svg viewBox="0 0 64 64" fill="none">
+          <rect x="28" y="6" width="8" height="52" rx="4" fill="#C9973E"/>
+          <rect x="6" y="22" width="52" height="8" rx="4" fill="#C9973E"/>
+        </svg>
+      </div>
+      <div class="brand-name">K<span>ai</span>ros</div>
+      <div class="brand-tagline">Junte-se às equipes criativas</div>
+    </div>
+
+    <div class="auth-quote">
+      <blockquote>
+        "Como são formosos sobre os montes os pés do que anuncia boas novas."
+      </blockquote>
+      <cite>Isaías 52:7</cite>
+    </div>
+
+    <div style="position:relative;z-index:2;margin-top:48px;display:flex;flex-direction:column;gap:10px;width:100%">
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#9C8570;margin-bottom:4px">Benefícios da plataforma</div>
+      <div style="display:flex;gap:10px;align-items:center;font-size:13px;color:rgba(242,234,216,0.8)">✦ IA especializada em conteúdo cristão</div>
+      <div style="display:flex;gap:10px;align-items:center;font-size:13px;color:rgba(242,234,216,0.8)">✦ Integração com todas as redes sociais</div>
+      <div style="display:flex;gap:10px;align-items:center;font-size:13px;color:rgba(242,234,216,0.8)">✦ Calendário editorial colaborativo</div>
+      <div style="display:flex;gap:10px;align-items:center;font-size:13px;color:rgba(242,234,216,0.8)">✦ Banco de mídias da equipe</div>
+    </div>
+  </div>
+
+  <div class="auth-right" style="padding-top:48px;padding-bottom:48px">
+    <div class="form-header">
+      <div class="form-eyebrow">Nova equipe</div>
+      <h2 class="form-title">Cadastre<br>sua equipe</h2>
+      <p class="form-subtitle">Crie uma conta para sua administração e comece a criar.</p>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Nome</label>
+        <input type="text" class="form-input" placeholder="João">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Sobrenome</label>
+        <input type="text" class="form-input" placeholder="Silva">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Nome da Igreja / Ministério</label>
+      <input type="text" class="form-input" placeholder="Igreja Comunidade da Graça">
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Cidade / Estado</label>
+      <input type="text" class="form-input" placeholder="São Paulo, SP">
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Denominação</label>
+      <select class="form-input form-select">
+        <option value="">Selecione...</option>
+        <option>Batista</option>
+        <option>Assembleia de Deus</option>
+        <option>Presbiteriana</option>
+        <option>Metodista</option>
+        <option>Católica</option>
+        <option>Internacional da Graça</option>
+        <option>Renascer em Cristo</option>
+        <option>Sara Nossa Terra</option>
+        <option>Universal</option>
+        <option>Outras</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">E-mail</label>
+      <input type="email" class="form-input" placeholder="admin@suaigreja.com.br">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Senha</label>
+        <input type="password" class="form-input" placeholder="••••••••">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Confirmar</label>
+        <input type="password" class="form-input" placeholder="••••••••">
+      </div>
+    </div>
+
+    <button class="btn-primary" onclick="goToDashboard()">
+      <span>Criar minha conta</span>
+    </button>
+
+    <div class="form-switch">
+      Já tem conta? <a onclick="switchScreen('screen-login')">Fazer login</a>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     DASHBOARD
+════════════════════════════════════════ -->
+<div class="screen" id="screen-dashboard">
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-wrap">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <rect x="10" y="2" width="4" height="20" rx="2" fill="#12080A"/>
+            <rect x="2" y="8" width="20" height="4" rx="2" fill="#12080A"/>
+          </svg>
+        </div>
+        <div class="logo-text">K<span>ai</span>ros</div>
+      </div>
+    </div>
+
+    <div class="sidebar-team">
+      <div class="team-label">Equipe ativa</div>
+      <div class="team-selector" onclick="showToast('🏛️ Trocar de equipe em breve!')">
+        <div class="team-avatar">CG</div>
+        <div class="team-name">Comunidade da Graça</div>
+        <div class="team-chevron">▾</div>
+      </div>
+    </div>
+
+    <div class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-section-title">Principal</div>
+        <div class="nav-item active" onclick="setPanel('overview', this)">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          Visão Geral
+        </div>
+        <div class="nav-item" onclick="setPanel('ia', this)">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12h6M12 9v6"/></svg>
+          Assistente IA
+          <span class="nav-badge">IA</span>
+        </div>
+        <div class="nav-item" onclick="setPanel('connect', this)">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          Conectar Plataformas
+        </div>
+        <div class="nav-item" onclick="setPanel('media', this)">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          Banco de Mídia
+        </div>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">Criação</div>
+        <div class="nav-item" onclick="showToast('📅 Calendário em desenvolvimento!')">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Calendário Editorial
+        </div>
+        <div class="nav-item" onclick="showToast('✂️ Editor em desenvolvimento!')">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Editor de Conteúdo
+        </div>
+        <div class="nav-item" onclick="showToast('📊 Analytics em desenvolvimento!')">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Analytics
+        </div>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">Administração</div>
+        <div class="nav-item" onclick="setPanel('settings', this)">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+          Configurações
+        </div>
+        <div class="nav-item" onclick="showToast('👥 Gestão de equipe em breve!')">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Equipe
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-user" onclick="switchScreen('screen-login')">
+      <div class="user-avatar">JS</div>
+      <div class="user-info">
+        <div class="user-name">João Silva</div>
+        <div class="user-role">Administrador</div>
+      </div>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9C8570" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main-content">
+    <div class="topbar">
+      <div class="topbar-title">
+        <h1 id="panelTitle">Visão Geral</h1>
+        <p id="panelSubtitle">Bem-vindo de volta, João! Aqui está o resumo da sua equipe.</p>
+      </div>
+      <div class="topbar-actions">
+        <div class="notif-btn" onclick="showToast('🔔 Você tem 3 notificações!')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <div class="notif-dot"></div>
+        </div>
+        <button class="topbar-btn outline" onclick="showToast('📋 Novo projeto criado!')">+ Novo Projeto</button>
+        <button class="topbar-btn solid" onclick="setPanel('ia', document.querySelector(\`.nav-item:nth-child(2)\`))">Perguntar à IA ✦</button>
+      </div>
+    </div>
+
+    <!-- ── OVERVIEW PANEL ── -->
+    <div class="panel active" id="panel-overview">
+      <div class="welcome-banner">
+        <div class="welcome-cross">
+          <svg width="200" height="200" viewBox="0 0 200 200" fill="none">
+            <rect x="88" y="20" width="24" height="160" rx="12" fill="white"/>
+            <rect x="20" y="72" width="160" height="24" rx="12" fill="white"/>
+          </svg>
+        </div>
+        <h2>Que Deus abençoe sua criatividade hoje ✦</h2>
+        <p>Sua equipe criativa está conectada e pronta para impactar mais vidas com conteúdo poderoso.</p>
+        <div class="welcome-meta">
+          <div class="meta-chip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Sábado, 04 Abr 2026
+          </div>
+          <div class="meta-chip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            3 membros ativos
+          </div>
+          <div class="meta-chip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            5 plataformas conectadas
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div class="stat-value">247K</div>
+          <div class="stat-label">Alcance total</div>
+          <div class="stat-change up">↑ 18% esta semana</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="stat-value">8.4K</div>
+          <div class="stat-label">Engajamento</div>
+          <div class="stat-change up">↑ 32% este mês</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <div class="stat-value">142</div>
+          <div class="stat-label">Conteúdos criados</div>
+          <div class="stat-change up">↑ 12 esta semana</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          </div>
+          <div class="stat-value">38</div>
+          <div class="stat-label">Vídeos publicados</div>
+          <div class="stat-change down">↓ 2 comparado</div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="section-card">
+          <div class="section-card-header">
+            <h3>📅 Calendário Editorial</h3>
+            <span onclick="showToast('Abrindo calendário completo...')">Ver tudo →</span>
+          </div>
+          <div class="section-card-body">
+            <div class="calendar-row">
+              <div class="cal-date"><div class="day">06</div><div class="month">Abr</div></div>
+              <div class="cal-info"><div class="cal-title">Série: Páscoa — Ressurreição e Esperança</div><div class="cal-meta">Reels + Carrossel • Instagram</div></div>
+              <div class="cal-platform ig">IG</div>
+            </div>
+            <div class="calendar-row">
+              <div class="cal-date"><div class="day">07</div><div class="month">Abr</div></div>
+              <div class="cal-info"><div class="cal-title">Short: Versículo do Dia — João 3:16</div><div class="cal-meta">60s • TikTok + Kwai</div></div>
+              <div class="cal-platform tt">TT</div>
+            </div>
+            <div class="calendar-row">
+              <div class="cal-date"><div class="day">09</div><div class="month">Abr</div></div>
+              <div class="cal-info"><div class="cal-title">Sermão Completo — Pastor Ricardo</div><div class="cal-meta">Vídeo longo • YouTube</div></div>
+              <div class="cal-platform yt">YT</div>
+            </div>
+            <div class="calendar-row">
+              <div class="cal-date"><div class="day">11</div><div class="month">Abr</div></div>
+              <div class="cal-info"><div class="cal-title">Louvor da Semana — Hillsong Cover</div><div class="cal-meta">Clipe • Kwai + TikTok</div></div>
+              <div class="cal-platform kw">KW</div>
+            </div>
+            <div class="calendar-row">
+              <div class="cal-date"><div class="day">13</div><div class="month">Abr</div></div>
+              <div class="cal-info"><div class="cal-title">Behind the scenes — Culto de Domingo</div><div class="cal-meta">Stories • Instagram</div></div>
+              <div class="cal-platform ig">IG</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-card">
+          <div class="section-card-header">
+            <h3>🏛️ Equipes Ativas</h3>
+            <span onclick="showToast('Ver todas as equipes...')">Ver tudo →</span>
+          </div>
+          <div class="section-card-body">
+            <div class="team-card">
+              <div class="team-card-avatar" style="background:linear-gradient(135deg,#5C2E1A,#8B4A2A)">CG</div>
+              <div class="team-card-info">
+                <div class="team-card-name">Comunidade da Graça</div>
+                <div class="team-card-city">São Paulo, SP</div>
+              </div>
+              <div class="team-card-status"></div>
+            </div>
+            <div class="team-card">
+              <div class="team-card-avatar" style="background:linear-gradient(135deg,#1A3D5C,#2A6B8B)">PE</div>
+              <div class="team-card-info">
+                <div class="team-card-name">Palavra Eterna</div>
+                <div class="team-card-city">Rio de Janeiro, RJ</div>
+              </div>
+              <div class="team-card-status"></div>
+            </div>
+            <div class="team-card">
+              <div class="team-card-avatar" style="background:linear-gradient(135deg,#1A3D1A,#2A8B4A)">LV</div>
+              <div class="team-card-info">
+                <div class="team-card-name">Luz e Vida</div>
+                <div class="team-card-city">Curitiba, PR</div>
+              </div>
+              <div class="team-card-status" style="background:#E07070"></div>
+            </div>
+            <div class="team-card">
+              <div class="team-card-avatar" style="background:linear-gradient(135deg,#3D1A3D,#8B2A8B)">NE</div>
+              <div class="team-card-info">
+                <div class="team-card-name">Nova Esperança</div>
+                <div class="team-card-city">Belo Horizonte, MG</div>
+              </div>
+              <div class="team-card-status"></div>
+            </div>
+            <div class="team-card">
+              <div class="team-card-avatar" style="background:linear-gradient(135deg,#3D2E1A,#8B6B2A)">AV</div>
+              <div class="team-card-info">
+                <div class="team-card-name">Avivamento Church</div>
+                <div class="team-card-city">Salvador, BA</div>
+              </div>
+              <div class="team-card-status"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── AI PANEL ── -->
+    <div class="panel" id="panel-ia">
+      <div class="chat-layout">
+        <div class="chat-main">
+          <div class="chat-header">
+            <div class="ai-avatar">✦</div>
+            <div class="chat-header-info">
+              <h3>Kairos IA — Assistente Criativo</h3>
+              <p><span class="online-dot"></span> Online · Especializado em mídia cristã</p>
+            </div>
+          </div>
+
+          <div class="chat-messages" id="chatMessages">
+            <div class="msg ai">
+              <div class="msg-avatar ai">✦</div>
+              <div>
+                <div class="msg-bubble">
+                  Shalom! Eu sou o <strong>Kairos IA</strong>, seu assistente criativo especializado em conteúdo para igrejas. 🙏<br><br>
+                  Fui treinado para ajudar equipes como a sua a criar conteúdo poderoso para redes sociais, seguindo as melhores práticas de igrejas como <strong>Elevation Church, Hillsong, Life.Church e Bethel</strong>.<br><br>
+                  Como posso te ajudar hoje?
+                </div>
+                <div class="msg-suggestions">
+                  <div class="suggestion-chip" onclick="sendQuickMsg(this)">💡 Ideia para Reels de Páscoa</div>
+                  <div class="suggestion-chip" onclick="sendQuickMsg(this)">📹 Script para vídeo de louvor</div>
+                  <div class="suggestion-chip" onclick="sendQuickMsg(this)">📱 Estratégia no TikTok</div>
+                  <div class="suggestion-chip" onclick="sendQuickMsg(this)">✍️ Legenda para post</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chat-input-area">
+            <div class="chat-input-wrap">
+              <textarea class="chat-input" id="chatInput" placeholder="Pergunte sobre estratégia, scripts, legendas, ideias de conteúdo..." rows="1" onkeydown="handleChatKey(event)"></textarea>
+              <div class="chat-input-tools">
+                <button class="input-tool-btn" onclick="showToast('📎 Anexar arquivo em breve!')">📎</button>
+                <button class="input-tool-btn" onclick="showToast('🎙️ Áudio em breve!')">🎙️</button>
+                <button class="input-tool-btn" onclick="showToast('🖼️ Imagem em breve!')">🖼️</button>
+              </div>
+            </div>
+            <button class="chat-send-btn" onclick="sendChatMessage()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#12080A" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="chat-sidebar">
+          <div class="chat-sidebar-card">
+            <h4>⚡ Prompts Rápidos</h4>
+            <div class="quick-prompt" onclick="fillPrompt(this)">Crie 5 ideias de Reels para esta semana focadas em Páscoa</div>
+            <div class="quick-prompt" onclick="fillPrompt(this)">Escreva uma legenda poderosa para post de versículo</div>
+            <div class="quick-prompt" onclick="fillPrompt(this)">Como a Elevation Church usa o Instagram? O que posso aplicar?</div>
+            <div class="quick-prompt" onclick="fillPrompt(this)">Crie um script de 60 segundos para TikTok sobre esperança</div>
+            <div class="quick-prompt" onclick="fillPrompt(this)">Planeje um mês de conteúdo temático para minha equipe</div>
+            <div class="quick-prompt" onclick="fillPrompt(this)">Estratégia de crescimento no Kwai para igrejas</div>
+          </div>
+          <div class="chat-sidebar-card">
+            <h4>📊 Seu Contexto</h4>
+            <div style="font-size:13px;color:#9C8570;line-height:1.8">
+              <div>⛪ Comunidade da Graça</div>
+              <div>📍 São Paulo, SP</div>
+              <div>📱 5 plataformas ativas</div>
+              <div>👥 ~2.400 seguidores</div>
+              <div style="margin-top:8px;color:#C9973E;font-weight:600">A IA usa esse contexto para personalizar as respostas.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CONNECT PANEL ── -->
+    <div class="panel" id="panel-connect">
+      <div style="margin-bottom:28px">
+        <h2 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--cream);margin-bottom:6px">Conectar Plataformas</h2>
+        <p style="font-size:14px;color:var(--text-muted)">Conecte suas redes sociais e gerencie tudo em um só lugar.</p>
+      </div>
+
+      <div class="connect-grid">
+        <div class="connect-card connected">
+          <div class="platform-icon ig">📸</div>
+          <div class="platform-name">Instagram</div>
+          <div class="platform-desc">Gerencie posts, Reels e Stories da sua comunidade.</div>
+          <div class="platform-stats">@comunidadegraça · 1.8K seguidores</div>
+          <button class="connect-btn active">✓ Conectado</button>
+        </div>
+
+        <div class="connect-card connected">
+          <div class="platform-icon tt">🎵</div>
+          <div class="platform-name">TikTok</div>
+          <div class="platform-desc">Alcance jovens com conteúdo curto e impactante.</div>
+          <div class="platform-stats">@kairos.church · 4.2K seguidores</div>
+          <button class="connect-btn active">✓ Conectado</button>
+        </div>
+
+        <div class="connect-card">
+          <div class="platform-icon kw">🌊</div>
+          <div class="platform-name">Kwai</div>
+          <div class="platform-desc">Expanda o alcance com vídeos curtos no Kwai.</div>
+          <div class="platform-desc" style="margin-top:4px;color:#C9973E;font-size:11px">Plataforma em alta no Brasil!</div>
+          <button class="connect-btn" onclick="connectPlatform(this, 'Kwai')">Conectar</button>
+        </div>
+
+        <div class="connect-card connected">
+          <div class="platform-icon yt">▶️</div>
+          <div class="platform-name">YouTube</div>
+          <div class="platform-desc">Publique sermões, louvores e cultos completos.</div>
+          <div class="platform-stats">Comunidade da Graça · 389 inscritos</div>
+          <button class="connect-btn active">✓ Conectado</button>
+        </div>
+
+        <div class="connect-card">
+          <div class="platform-icon site">🌐</div>
+          <div class="platform-name">Website</div>
+          <div class="platform-desc">Sincronize eventos, blog e conteúdo do seu site.</div>
+          <button class="connect-btn" onclick="connectPlatform(this, 'Website')">Conectar</button>
+        </div>
+
+        <div class="connect-card connected">
+          <div class="platform-icon gallery">🖼️</div>
+          <div class="platform-name">Galeria de Fotos</div>
+          <div class="platform-desc">Banco de imagens da sua equipe para uso nas plataformas.</div>
+          <div class="platform-stats">142 imagens · 8.2 GB</div>
+          <button class="connect-btn active">✓ Conectado</button>
+        </div>
+
+        <div class="connect-card">
+          <div class="platform-icon video">🎬</div>
+          <div class="platform-name">Biblioteca de Vídeos</div>
+          <div class="platform-desc">Armazene e organize vídeos de cultos, pregações e louvores.</div>
+          <button class="connect-btn" onclick="connectPlatform(this, 'Biblioteca de Vídeos')">Conectar</button>
+        </div>
+
+        <div class="connect-card">
+          <div class="platform-icon" style="background:linear-gradient(135deg,#25D366,#128C7E);font-size:26px">💬</div>
+          <div class="platform-name">WhatsApp Business</div>
+          <div class="platform-desc">Envie conteúdo diretamente para grupos e listas de transmissão.</div>
+          <button class="connect-btn" onclick="connectPlatform(this, 'WhatsApp')">Conectar</button>
+        </div>
+
+        <div class="connect-card">
+          <div class="platform-icon" style="background:linear-gradient(135deg,#0088cc,#00A8E8);font-size:26px">✈️</div>
+          <div class="platform-name">Telegram</div>
+          <div class="platform-desc">Canal da igreja no Telegram para comunicação com membros.</div>
+          <button class="connect-btn" onclick="connectPlatform(this, 'Telegram')">Conectar</button>
+        </div>
+      </div>
+
+      <div class="upload-zone" onclick="showToast('📁 Área de upload em breve!')">
+        <div class="upload-icon">☁️</div>
+        <h3>Arraste arquivos ou clique para enviar</h3>
+        <p>Fotos, vídeos, áudios, documentos — tudo em um só lugar para sua equipe.</p>
+        <div style="margin-top:16px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+          <span style="padding:4px 12px;background:rgba(201,151,62,0.1);border-radius:20px;font-size:12px;color:var(--gold)">JPG/PNG</span>
+          <span style="padding:4px 12px;background:rgba(201,151,62,0.1);border-radius:20px;font-size:12px;color:var(--gold)">MP4/MOV</span>
+          <span style="padding:4px 12px;background:rgba(201,151,62,0.1);border-radius:20px;font-size:12px;color:var(--gold)">PDF</span>
+          <span style="padding:4px 12px;background:rgba(201,151,62,0.1);border-radius:20px;font-size:12px;color:var(--gold)">PSD/AI</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── MEDIA PANEL ── -->
+    <div class="panel" id="panel-media">
+      <div class="media-toolbar">
+        <button class="filter-chip active">Tudo</button>
+        <button class="filter-chip" onclick="filterMedia(this)">📸 Fotos</button>
+        <button class="filter-chip" onclick="filterMedia(this)">🎬 Vídeos</button>
+        <button class="filter-chip" onclick="filterMedia(this)">🎨 Artes</button>
+        <button class="filter-chip" onclick="filterMedia(this)">📊 Templates</button>
+        <div style="flex:1"></div>
+        <button class="topbar-btn outline" onclick="showToast('🔍 Busca avançada em breve!')">🔍 Buscar</button>
+        <button class="topbar-btn solid" onclick="showToast('⬆️ Upload em breve!')">⬆️ Enviar</button>
+      </div>
+
+      <div class="media-grid">
+        <div class="media-card"><div class="media-thumb" style="background:linear-gradient(135deg,#5C2E1A,#2D1610)">✝️<div class="media-type-badge">ARTE</div></div><div class="media-card-info"><div class="media-card-title">Banner Páscoa 2026</div><div class="media-card-meta"><span>Ontem</span><span>1920×1080</span></div></div></div>
+        <div class="media-card"><div class="media-thumb" style="background:linear-gradient(135deg,#1A2C5C,#0D1B3E)">🙏<div class="media-type-badge">FOTO</div></div><div class="media-card-info"><div class="media-card-title">Culto 30/03 — Abertura</div><div class="media-card-meta"><span>3 dias</span><span>4K RAW</span></div></div></div>
+        <div class="media-card"><div class="media-thumb" style="background:linear-gradient(135deg,#1A4D2E,#0D2E1A)">🎵<div class="media-type-badge">VÍDEO</div></div><div class="media-card-info"><div class="media-card-title">Louvor — Oceans Cover</div><div class="media-card-meta"><span>5 dias</span><span>4:32 min</span></div></div></div>
+        <div class="media-card"><div class="media-thumb" style="background:linear-gradient(135deg,#4D1A1A,#2E0D0D)">📖<div class="media-type-badge">ARTE</div></div><div class="media-card-info"><div class="media-card-title">Post Versículo — Série Fé</div><div class="media-card-meta"><span>1 semana</span><span>1080×1080</span></div></div></div>
+        <div class="media-card"><div class="media-thumb" style="background:linear-gradient(135deg,#2E1A4D,#1A0D2E)">⭐<div class="media-type-badge">TEMPLATE</div></div><div class="media-card-info"><div class="media-card-title">Template Story Semana</div><div class="media-card-meta"><span>2 semanas</span><span>1080×1920</span></div></div></div>
+        <div class="media-card"><div class="media-thumb" style="background:linear-gradient(135deg,#4D3A1A,#2E220D)">🕊️<div class="media-type-badge">FOTO</div></div><div class="media-card-info"><div class="media-card-title">Batismo — 15 Março</div><div class="media-card-meta"><span>3 semanas</span><span>6 fotos</span></div></div></div>
+        <div class="media-card"><div class="media-thumb" style="background:linear-gradient(135deg,#1A4D4D,#0D2E2E)">🎬<div class="media-type-badge">VÍDEO</div></div><div class="media-card-info"><div class="media-card-title">Sermão — Pastor Ricardo</div><div class="media-card-meta"><span>1 mês</span><span>58:20 min</span></div></div></div>
+        <div class="media-card"><div class="media-thumb" style="background:linear-gradient(135deg,#4D1A3A,#2E0D22)">🌟<div class="media-type-badge">ARTE</div></div><div class="media-card-info"><div class="media-card-title">Arte Natal — Pack 2025</div><div class="media-card-meta"><span>4 meses</span><span>12 peças</span></div></div></div>
+      </div>
+    </div>
+
+    <!-- ── SETTINGS PANEL ── -->
+    <div class="panel" id="panel-settings">
+      <div class="settings-grid">
+        <div class="settings-nav">
+          <div class="settings-nav-item active" onclick="settingsNav(this)">👤 Perfil da Equipe</div>
+          <div class="settings-nav-item" onclick="settingsNav(this)">🔔 Notificações</div>
+          <div class="settings-nav-item" onclick="settingsNav(this)">🎨 Identidade Visual</div>
+          <div class="settings-nav-item" onclick="settingsNav(this)">🔒 Segurança</div>
+          <div class="settings-nav-item" onclick="settingsNav(this)">💳 Plano & Cobrança</div>
+          <div class="settings-nav-item" onclick="settingsNav(this)">👥 Membros da Equipe</div>
+          <div class="settings-nav-item" onclick="settingsNav(this)">🤖 Configurações IA</div>
+        </div>
+
+        <div class="settings-content">
+          <div class="settings-section-title">Perfil da Equipe</div>
+          <div class="settings-section-desc">Informações públicas da sua administração na plataforma Kairos.</div>
+
+          <div style="display:flex;align-items:center;gap:20px;margin-bottom:28px;padding:20px;background:rgba(201,151,62,0.05);border-radius:12px;border:1px solid rgba(201,151,62,0.1)">
+            <div style="width:72px;height:72px;border-radius:16px;background:linear-gradient(135deg,#5C2E1A,#8B4A2A);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;color:var(--cream);flex-shrink:0">CG</div>
+            <div>
+              <div style="font-size:15px;font-weight:700;color:var(--cream)">Comunidade da Graça</div>
+              <div style="font-size:13px;color:var(--text-muted);margin-top:2px">São Paulo, SP · Batista</div>
+              <button style="margin-top:8px;padding:5px 14px;border-radius:6px;border:1.5px solid rgba(201,151,62,0.25);background:transparent;color:var(--gold);font-size:12px;cursor:pointer" onclick="showToast('📷 Upload de logo em breve!')">Alterar logo</button>
+            </div>
+          </div>
+
+          <div class="form-row" style="grid-template-columns:1fr 1fr">
+            <div class="settings-field"><label>Nome da Igreja</label><input class="settings-input" value="Comunidade da Graça"></div>
+            <div class="settings-field"><label>Cidade / Estado</label><input class="settings-input" value="São Paulo, SP"></div>
+          </div>
+          <div class="settings-field"><label>Denominação</label><input class="settings-input" value="Batista"></div>
+          <div class="settings-field"><label>Site Oficial</label><input class="settings-input" placeholder="https://suaigreja.com.br"></div>
+          <div class="settings-field"><label>Descrição</label><textarea class="settings-input" style="resize:vertical;min-height:80px" placeholder="Descreva brevemente sua comunidade...">Uma comunidade que crê no poder transformador do Evangelho de Cristo.</textarea></div>
+
+          <div style="margin-top:28px">
+            <div style="font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px">Notificações</div>
+            <div class="toggle-row">
+              <div class="toggle-info"><h4>Lembretes de agendamento</h4><p>Avise quando um conteúdo está prestes a ser publicado</p></div>
+              <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-info"><h4>Sugestões da IA</h4><p>Receba ideias personalizadas de conteúdo semanalmente</p></div>
+              <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-info"><h4>Relatório semanal</h4><p>Resumo de performance de todas as plataformas</p></div>
+              <div class="toggle" onclick="this.classList.toggle('on')"></div>
+            </div>
+          </div>
+
+          <button class="btn-primary" style="width:auto;padding:12px 28px;margin-top:24px" onclick="showToast('✓ Configurações salvas com sucesso!')">
+            <span>Salvar alterações</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <span class="toast-icon" id="toastIcon"></span>
+  <span id="toastMsg"></span>
+</div>
+
+<script>
+  // ── Loading ──
+  setTimeout(() => {
+    document.getElementById('loadingScreen').classList.add('hidden');
+  }, 2200);
+
+  // ── Screen switching ──
+  function switchScreen(id) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+
+  function goToDashboard() {
+    switchScreen('screen-dashboard');
+  }
+
+  // ── Panel switching ──
+  const panelMeta = {
+    overview: { title: 'Visão Geral', subtitle: 'Bem-vindo de volta, João! Aqui está o resumo da sua equipe.' },
+    ia:       { title: 'Assistente IA ✦', subtitle: 'Conteúdo inteligente e personalizado para igrejas.' },
+    connect:  { title: 'Conectar Plataformas', subtitle: 'Gerencie suas redes sociais em um só lugar.' },
+    media:    { title: 'Banco de Mídia', subtitle: 'Todas as fotos, vídeos e artes da sua equipe.' },
+    settings: { title: 'Configurações', subtitle: 'Gerencie sua equipe e preferências.' },
+  };
+
+  function setPanel(id, navEl) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    const panel = document.getElementById('panel-' + id);
+    if (panel) panel.classList.add('active');
+    if (navEl) navEl.classList.add('active');
+    const meta = panelMeta[id] || { title: id, subtitle: '' };
+    document.getElementById('panelTitle').textContent = meta.title;
+    document.getElementById('panelSubtitle').textContent = meta.subtitle;
+  }
+
+  function filterMedia(el) {
+    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+    showToast('🎞️ Filtrando por ' + el.textContent.trim());
+  }
+
+  function settingsNav(el) {
+    document.querySelectorAll('.settings-nav-item').forEach(i => i.classList.remove('active'));
+    el.classList.add('active');
+    showToast('⚙️ ' + el.textContent.trim());
+  }
+
+  function connectPlatform(btn, name) {
+    btn.textContent = '⏳ Conectando...';
+    btn.style.opacity = '0.7';
+    setTimeout(() => {
+      btn.textContent = '✓ Conectado';
+      btn.classList.add('active');
+      btn.style.opacity = '1';
+      const card = btn.closest('.connect-card');
+      card.classList.add('connected');
+      showToast('🔗 ' + name + ' conectado com sucesso!');
+    }, 1800);
+  }
+
+  // ── Toast ──
+  let toastTimer;
+  function showToast(msg) {
+    clearTimeout(toastTimer);
+    const toast = document.getElementById('toast');
+    document.getElementById('toastMsg').textContent = msg.replace(/^[^\s]+\s/, '');
+    document.getElementById('toastIcon').textContent = msg.match(/^[^\s]+/)?.[0] || '✓';
+    toast.classList.add('show');
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+
+  // ── AI Chat ──
+  const aiResponses = [
+    {
+      q: 'Páscoa', a: `Ótimas ideias para a Páscoa! 🌟 Aqui estão 5 conceitos poderosos:
+
+**1. "Ele Ressuscitou" — Série de 7 dias**
+Conte a história da ressurreição em 7 Reels curtos (30s cada), um por dia da Semana Santa. Use textos do evangelho de João.
+
+**2. Testemunhos de Transformação**
+Peça a membros que compartilhem como a Páscoa mudou suas vidas. Vídeos curtos, 60s, estilo confessional na câmera — performa muito bem no TikTok.
+
+**3. "Do Gólgota ao Túmulo Vazio"**
+Uma arte visual em carrossel no Instagram narrando os momentos finais de Cristo. Inspiração: como a Elevation Church fez em 2024.
+
+**4. Louvor ao Vivo — Clip de 90 segundos**
+Grave um trecho emotivo do culto de Páscoa e poste no Kwai/TikTok com texto sobreposto.
+
+**5. Convite em Vídeo do Pastor**
+30 segundos direto ao ponto: "Venha celebrar a Páscoa conosco." Alta taxa de conversão.
+
+Quer que eu escreva um script para algum desses?`
+    },
+    {
+      q: 'script', a: `Claro! Aqui está um script de 60 segundos para TikTok/Kwai sobre esperança: 🎬
+
+---
+**[0-5s]** *(Câmera direta, sério)*
+"Você já teve a sensação de que não havia mais saída?"
+
+**[5-15s]** *(Tom suave)*
+"Eu também já estive lá. Aquele lugar escuro onde tudo parece impossível."
+
+**[15-35s]** *(Com autoridade)*
+"Mas existe uma promessa que mudou a minha vida completamente:
+*'Porque eu sei os planos que tenho para vocês — planos de dar-lhes futuro e esperança.'* — Jeremias 29:11"
+
+**[35-50s]** *(Engajador)*
+"Deus não te esqueceu. Ele não está dormindo. Ele está trabalhando por você AGORA."
+
+**[50-60s]** *(CTA)*
+"Compartilha isso com alguém que precisa ouvir hoje. 🙏 Salva esse vídeo."
+
+---
+*Dica: grave em um fundo clean ou ao ar livre. Adicione música suave de fundo (+20% retenção). Poste entre 18h-21h.*`
+    },
+    {
+      q: 'Elevation', a: `A **Elevation Church** é referência mundial em comunicação cristã! 🏆 Aqui está o que eles fazem que você pode aplicar:
+
+**Instagram:**
+- Consistência brutal: postam TODOS OS DIAS, sempre no mesmo horário
+- Arte com tipografia bold, pouquíssimo texto, muito impacto visual
+- Stories interativos: enquetes, perguntas, contagem regressiva para cultos
+
+**TikTok:**
+- Clips de 15-30s de sermões do Pastor Steven Furtick — os momentos mais "quotáveis"
+- Legendas com hook forte nos primeiros 3 segundos
+- Tendência de áudios virais com conteúdo espiritual sobreposto
+
+**O que você pode aplicar HOJE:**
+1. Crie uma identidade visual consistente (1-2 fontes, 2-3 cores)
+2. Recorte os melhores 30s de cada pregação para TikTok/Kwai
+3. Use a estratégia do "Eco de Domingo" — todo conteúdo da semana é desdobramento do culto
+
+Quer um plano editorial de 30 dias baseado nessa metodologia?`
+    },
+    {
+      q: 'legenda', a: `Aqui estão 3 legendas poderosas para post de versículo: ✍️
+
+---
+**Opção 1 — Emocional:**
+"Quando você não tiver mais forças, lembre-se: Ele tem.
+📖 *'O Senhor é a minha força e o meu escudo'* — Salmos 28:7
+Salva esse versículo. Você vai precisar dele. 🙏
+.
+.
+#Fé #Palavra #ComunidadeGraça #Deus #Esperança"
+
+---
+**Opção 2 — Provocativo:**
+"Às vezes Deus não muda a situação.
+Ele muda VOCÊ na situação.
+📖 Romanos 8:28
+Alguém passou por isso? Conta nos comentários 👇"
+
+---
+**Opção 3 — Motivacional curto:**
+"Hoje é dia de confiar.
+Não de entender. De confiar.
+Isaías 26:3 🕊️"
+
+---
+*Dica: Legendas com pergunta no final geram até 3x mais comentários. Use sempre um CTA!*`
+    },
+    {
+      q: 'TikTok', a: `Estratégia completa para crescer no TikTok como igreja! 📱🔥
+
+**A regra de ouro:** Os primeiros 3 segundos determinam tudo. Comece sempre com um hook forte.
+
+**Tipos de conteúdo que funcionam:**
+- 🎯 **Clips de pregação** (15-30s) — Escolha os momentos mais impactantes
+- 💬 **"Você sabia que..."** — Curiosidades bíblicas. Alta viralidade
+- 🙏 **Orações em vídeo** — Vídeos de 30s de oração geram muito salvamento
+- 🎵 **Covers de louvor** — Versões acústicas têm excelente retenção
+- 😄 **Humor cristão saudável** — Memes de fé humanizam a Igreja
+
+**Algoritmo do TikTok:**
+1. Poste 1-2x por dia nos primeiros 30 dias
+2. Melhor horário: 18h-20h (horário de Brasília)
+3. Responda TODOS os comentários nas primeiras 2 horas
+4. Use áudios em alta + hashtags específicas
+
+**Igrejas referência no TikTok:**
+@elevationchurch · @lifechurch · @hillsong · @betheltv
+
+Quer que eu crie um calendário de 30 dias de conteúdo para TikTok?`
+    },
+    {
+      q: 'default', a: `Boa pergunta! 🙏 Como seu assistente criativo especializado em mídia para igrejas, posso te ajudar com:
+
+- 📱 **Estratégias** para Instagram, TikTok, Kwai e YouTube
+- ✍️ **Roteiros e scripts** para vídeos e Reels
+- 🎨 **Briefings criativos** para sua equipe de design
+- 📅 **Planejamento editorial** mensal/semanal
+- 💡 **Ideias de conteúdo** baseadas em igrejas como Elevation, Hillsong e Bethel
+
+Pode me dar mais detalhes sobre o que você precisa? Quanto mais contexto, mais personalizada será minha resposta!`
+    }
+  ];
+
+  function getAIResponse(msg) {
+    const lower = msg.toLowerCase();
+    for (const r of aiResponses) {
+      if (r.q !== 'default' && lower.includes(r.q.toLowerCase())) return r.a;
+    }
+    return aiResponses.find(r => r.q === 'default').a;
+  }
+
+  function addMessage(text, role) {
+    const container = document.getElementById('chatMessages');
+    const msg = document.createElement('div');
+    msg.className = `msg ${role}`;
+
+    const avatar = document.createElement('div');
+    avatar.className = `msg-avatar ${role}`;
+    avatar.textContent = role === 'ai' ? '✦' : 'JS';
+
+    const bubble = document.createElement('div');
+    bubble.className = 'msg-bubble';
+    bubble.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+
+    if (role === 'ai') {
+      const wrap = document.createElement('div');
+      wrap.appendChild(bubble);
+      msg.appendChild(avatar);
+      msg.appendChild(wrap);
+    } else {
+      msg.appendChild(avatar);
+      msg.appendChild(bubble);
+    }
+
+    container.appendChild(msg);
+    container.scrollTop = container.scrollHeight;
+    return msg;
+  }
+
+  function addTyping() {
+    const container = document.getElementById('chatMessages');
+    const msg = document.createElement('div');
+    msg.className = 'msg ai';
+    msg.id = 'typing';
+
+    const avatar = document.createElement('div');
+    avatar.className = 'msg-avatar ai';
+    avatar.textContent = '✦';
+
+    const bubble = document.createElement('div');
+    bubble.className = 'msg-bubble';
+    bubble.innerHTML = '<div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';
+
+    const wrap = document.createElement('div');
+    wrap.appendChild(bubble);
+    msg.appendChild(avatar);
+    msg.appendChild(wrap);
+    container.appendChild(msg);
+    container.scrollTop = container.scrollHeight;
+  }
+
+  function sendChatMessage() {
+    const input = document.getElementById('chatInput');
+    const text = input.value.trim();
+    if (!text) return;
+
+    addMessage(text, 'user');
+    input.value = '';
+
+    addTyping();
+    const delay = 1200 + Math.random() * 1000;
+
+    setTimeout(() => {
+      document.getElementById('typing')?.remove();
+      addMessage(getAIResponse(text), 'ai');
+    }, delay);
+  }
+
+  function handleChatKey(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendChatMessage();
+    }
+  }
+
+  function sendQuickMsg(el) {
+    document.getElementById('chatInput').value = el.textContent.trim();
+    sendChatMessage();
+  }
+
+  function fillPrompt(el) {
+    document.getElementById('chatInput').value = el.textContent.trim();
+    document.getElementById('chatInput').focus();
+  }
+</script>
+</body>
+</html>

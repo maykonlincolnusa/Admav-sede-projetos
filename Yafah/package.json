@@ -1,0 +1,16 @@
+{
+  "name": "yafah-platform",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Yafah AI Luxury Boutique - Platform Orchestrator",
+  "scripts": {
+    "frontend": "npm run dev --prefix frontend",
+    "backend": "cd backend && uvicorn main:app --reload",
+    "dev": "npx concurrently \"npm run frontend\" \"npm run backend\"",
+    "start": "npm run dev",
+    "build": "npm run build --prefix frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

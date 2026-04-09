@@ -1,0 +1,137 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(214, 174, 84, 0.24), transparent 35%),
+    linear-gradient(135deg, #f8f1df 0%, #efe1bb 48%, #d5c08f 100%);
+  color: #2d2212;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.shell {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 3rem 0 4rem;
+}
+
+.hero {
+  max-width: 720px;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.22rem;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: #6b4c0f;
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 0.95;
+}
+
+.lead {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 58ch;
+}
+
+.panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 1.5rem;
+}
+
+.member-form,
+.notes {
+  padding: 1.5rem;
+  border: 1px solid rgba(89, 63, 8, 0.14);
+  border-radius: 24px;
+  background: rgba(255, 250, 239, 0.82);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 40px rgba(77, 54, 11, 0.12);
+}
+
+.member-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.member-form label {
+  display: grid;
+  gap: 0.45rem;
+  font-weight: 600;
+}
+
+.member-form input,
+.member-form select,
+.member-form textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(90, 63, 12, 0.18);
+  background: rgba(255, 255, 255, 0.78);
+  color: inherit;
+  font: inherit;
+}
+
+.member-form button {
+  padding: 1rem 1.2rem;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #6e4c12, #ba8b25);
+  color: #fff9eb;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.member-form button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.notes h2 {
+  margin-top: 0;
+}
+
+.notes ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  line-height: 1.8;
+}
+
+.status {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 16px;
+  font-weight: 600;
+}
+
+.status.success {
+  background: rgba(44, 122, 80, 0.12);
+  color: #1f5b3a;
+}
+
+.status.error {
+  background: rgba(146, 26, 26, 0.1);
+  color: #7c1e1e;
+}
+
+@media (max-width: 860px) {
+  .panel {
+    grid-template-columns: 1fr;
+  }
+}

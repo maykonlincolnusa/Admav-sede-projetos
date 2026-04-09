@@ -1,0 +1,85 @@
+{
+  "departments": [
+    {
+      "key": "terca_intercessao",
+      "name": "Terca da Intercessao",
+      "audience": "todos",
+      "meeting_day": "tue",
+      "meeting_time": "19:30",
+      "description": "Culto de intercessao e clamor.",
+      "leader_name": null,
+      "leader_phone": null,
+      "social_links": {
+        "instagram": null,
+        "facebook": null,
+        "tiktok": null,
+        "youtube": null
+      }
+    },
+    {
+      "key": "domingo_manha",
+      "name": "Culto de Domingo de Manha",
+      "audience": "todos",
+      "meeting_day": "sun",
+      "meeting_time": "09:00",
+      "description": "Culto de celebracao e palavra.",
+      "leader_name": null,
+      "leader_phone": null,
+      "social_links": {
+        "instagram": null,
+        "facebook": null,
+        "tiktok": null,
+        "youtube": null
+      }
+    },
+    {
+      "key": "level_teen",
+      "name": "Level Teen",
+      "audience": "adolescentes",
+      "meeting_day": "sat",
+      "meeting_time": "18:00",
+      "description": "Ministerio de adolescentes.",
+      "leader_name": null,
+      "leader_phone": null,
+      "social_links": {
+        "instagram": null,
+        "facebook": null,
+        "tiktok": null,
+        "youtube": null
+      }
+    },
+    {
+      "key": "level_up",
+      "name": "Level Up",
+      "audience": "jovens",
+      "meeting_day": "sat",
+      "meeting_time": "20:00",
+      "description": "Ministerio de jovens.",
+      "leader_name": null,
+      "leader_phone": null,
+      "social_links": {
+        "instagram": null,
+        "facebook": null,
+        "tiktok": null,
+        "youtube": null
+      }
+    },
+    {
+      "key": "nucleo_conexao",
+      "name": "Nucleo - Grupos de Conexao",
+      "audience": "todos",
+      "meeting_day": "wed",
+      "meeting_time": "20:00",
+      "description": "Grupos de conexao e comunhao nos lares.",
+      "leader_name": null,
+      "leader_phone": null,
+      "social_links": {
+        "instagram": null,
+        "facebook": null,
+        "tiktok": null,
+        "youtube": null
+      }
+    }
+  ],
+  "updated_at": null
+}

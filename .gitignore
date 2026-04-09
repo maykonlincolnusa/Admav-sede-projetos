@@ -1,0 +1,53 @@
+# Secrets and environment files
+**/.env
+**/.env.*
+!**/.env.example
+**/api IA.txt
+**/*.pem
+**/*.key
+**/*.crt
+
+# Dependencies and build output
+**/node_modules/
+**/dist/
+**/build/
+**/.vite/
+
+# Python artifacts
+**/__pycache__/
+**/*.py[cod]
+**/.mypy_cache/
+**/.pytest_cache/
+**/.venv/
+**/venv/
+
+# Logs and local databases
+**/*.log
+**/*.err
+**/build_output*.txt
+**/build_stdout*.txt
+**/*.db
+**/*.sqlite
+**/*.sqlite3
+**/ml_artifacts/
+
+# Editors and OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Portfolio curation
+Ezer/
+site oficial/
+kairos/admav-platform/
+kairos/artwork.png
+Yafah/yafah-auth.jsx
+Yafah/yafah-dashboard.jsx
+O chefe/department_structure.json
+O chefe/social_links.json
+O chefe/style_examples.txt
+O chefe/cadastro-admav.html
+O chefe/painel-admav.html
+**/apple/
+**/apple2/

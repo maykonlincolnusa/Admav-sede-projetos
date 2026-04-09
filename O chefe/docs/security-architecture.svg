@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs>
+    <style>
+      .title { font: 700 20px "Segoe UI", Arial, sans-serif; fill: #1f2937; }
+      .group-label { font: 700 14px "Segoe UI", Arial, sans-serif; fill: #111827; }
+      .box-label { font: 600 12px "Segoe UI", Arial, sans-serif; fill: #111827; }
+      .box { fill: #ffffff; stroke: #111827; stroke-width: 1.5; rx: 6; ry: 6; }
+      .group { fill: #f8fafc; stroke: #334155; stroke-width: 1.5; rx: 10; ry: 10; }
+      .line { stroke: #334155; stroke-width: 1.6; fill: none; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155" />
+    </marker>
+  </defs>
+
+  <text x="40" y="24" class="title">Arquitetura de Seguranca - Agente IA Igreja</text>
+
+  <!-- Groups -->
+  <rect x="40" y="30" width="350" height="160" class="group"/>
+  <rect x="420" y="30" width="320" height="160" class="group"/>
+  <rect x="760" y="30" width="380" height="160" class="group"/>
+  <rect x="40" y="230" width="700" height="240" class="group"/>
+  <rect x="760" y="230" width="380" height="240" class="group"/>
+  <rect x="40" y="510" width="1100" height="200" class="group"/>
+
+  <!-- Group labels -->
+  <text x="52" y="50" class="group-label">Clients</text>
+  <text x="432" y="50" class="group-label">Edge</text>
+  <text x="772" y="50" class="group-label">Auth</text>
+  <text x="52" y="250" class="group-label">App</text>
+  <text x="772" y="250" class="group-label">Data</text>
+  <text x="52" y="530" class="group-label">External</text>
+
+  <!-- Clients -->
+  <rect x="60" y="70" width="100" height="40" class="box"/>
+  <text x="110" y="95" text-anchor="middle" class="box-label">Web/Mobile</text>
+
+  <rect x="170" y="70" width="140" height="40" class="box"/>
+  <text x="240" y="95" text-anchor="middle" class="box-label">WhatsApp/SMS</text>
+
+  <rect x="60" y="120" width="250" height="40" class="box"/>
+  <text x="185" y="145" text-anchor="middle" class="box-label">Admin Console</text>
+
+  <!-- Edge -->
+  <rect x="450" y="80" width="260" height="60" class="box"/>
+  <text x="580" y="110" text-anchor="middle" class="box-label">API Gateway + WAF</text>
+  <text x="580" y="128" text-anchor="middle" class="box-label">Rate Limit + DDoS</text>
+
+  <!-- Auth -->
+  <rect x="780" y="80" width="160" height="60" class="box"/>
+  <text x="860" y="110" text-anchor="middle" class="box-label">OAuth2/OIDC</text>
+  <text x="860" y="128" text-anchor="middle" class="box-label">IdP</text>
+
+  <rect x="960" y="80" width="160" height="60" class="box"/>
+  <text x="1040" y="110" text-anchor="middle" class="box-label">RBAC</text>
+  <text x="1040" y="128" text-anchor="middle" class="box-label">MFA</text>
+
+  <!-- App -->
+  <rect x="70" y="280" width="170" height="60" class="box"/>
+  <text x="155" y="310" text-anchor="middle" class="box-label">FastAPI API</text>
+
+  <rect x="260" y="280" width="200" height="60" class="box"/>
+  <text x="360" y="305" text-anchor="middle" class="box-label">AI Guard</text>
+  <text x="360" y="323" text-anchor="middle" class="box-label">Prompt + Output Filter</text>
+
+  <rect x="480" y="280" width="210" height="60" class="box"/>
+  <text x="585" y="310" text-anchor="middle" class="box-label">APScheduler Jobs</text>
+
+  <rect x="290" y="360" width="170" height="60" class="box"/>
+  <text x="375" y="390" text-anchor="middle" class="box-label">Security Audit Log</text>
+
+  <!-- Data -->
+  <rect x="780" y="280" width="170" height="60" class="box"/>
+  <text x="865" y="310" text-anchor="middle" class="box-label">Relational DB</text>
+  <text x="865" y="328" text-anchor="middle" class="box-label">SQLite dev / Postgres prod</text>
+
+  <rect x="960" y="280" width="160" height="60" class="box"/>
+  <text x="1040" y="310" text-anchor="middle" class="box-label">ML Artifacts</text>
+  <text x="1040" y="328" text-anchor="middle" class="box-label">Profiles + Models</text>
+
+  <rect x="780" y="360" width="340" height="60" class="box"/>
+  <text x="950" y="390" text-anchor="middle" class="box-label">Secrets Manager</text>
+
+  <!-- External -->
+  <rect x="80" y="570" width="250" height="60" class="box"/>
+  <text x="205" y="600" text-anchor="middle" class="box-label">OpenAI API</text>
+
+  <rect x="360" y="570" width="250" height="60" class="box"/>
+  <text x="485" y="600" text-anchor="middle" class="box-label">Twilio SMS/WhatsApp/Voice</text>
+
+  <!-- Lines -->
+  <path d="M 160 90 L 450 110" class="line" marker-end="url(#arrow)"/>
+  <path d="M 310 90 L 450 110" class="line" marker-end="url(#arrow)"/>
+  <path d="M 310 140 L 450 110" class="line" marker-end="url(#arrow)"/>
+
+  <path d="M 580 140 L 580 220 L 155 220 L 155 280" class="line" marker-end="url(#arrow)"/>
+
+  <path d="M 240 310 L 240 200 L 860 200 L 860 140" class="line" marker-end="url(#arrow)"/>
+  <path d="M 940 110 L 960 110" class="line" marker-end="url(#arrow)"/>
+
+  <path d="M 240 310 L 260 310" class="line" marker-end="url(#arrow)"/>
+  <path d="M 480 310 L 240 310" class="line" marker-end="url(#arrow)"/>
+
+  <path d="M 155 340 L 375 360" class="line" marker-end="url(#arrow)"/>
+
+  <path d="M 240 310 L 780 310" class="line" marker-end="url(#arrow)"/>
+  <path d="M 240 310 L 960 310" class="line" marker-end="url(#arrow)"/>
+
+  <path d="M 155 340 L 155 520 L 205 520 L 205 570" class="line" marker-end="url(#arrow)"/>
+  <path d="M 155 340 L 155 520 L 485 520 L 485 570" class="line" marker-end="url(#arrow)"/>
+
+  <path d="M 780 390 L 250 390 L 250 310 L 240 310" class="line" marker-end="url(#arrow)"/>
+  <path d="M 950 420 L 950 520 L 205 520 L 205 570" class="line" marker-end="url(#arrow)"/>
+  <path d="M 950 420 L 950 520 L 485 520 L 485 570" class="line" marker-end="url(#arrow)"/>
+</svg>

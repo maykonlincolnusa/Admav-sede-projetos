@@ -1,0 +1,42 @@
+# ── Core ──────────────────────────────────────────────
+fastapi==0.110.0
+uvicorn[standard]==0.29.0
+python-dotenv==1.0.1
+python-multipart==0.0.9
+
+# ── MongoDB ───────────────────────────────────────────
+motor==3.3.2
+pymongo==4.6.3
+
+# ── LangChain (orquestrador) ──────────────────────────
+langchain==0.1.20
+langchain-core==0.1.52
+langchain-community==0.0.38
+langchain-google-genai==1.0.3
+langchain-mongodb==0.1.3
+faiss-cpu==1.8.0
+
+# ── Google Gemini ─────────────────────────────────────
+google-generativeai==0.5.4
+
+# ── Web Search ────────────────────────────────────────
+tavily-python==0.3.3
+httpx==0.27.0
+beautifulsoup4==4.12.3
+
+# ── Processamento de documentos ───────────────────────
+pypdf==4.2.0
+python-docx==1.1.0
+
+# ── Machine Learning ──────────────────────────────────
+scikit-learn==1.4.2
+numpy==1.26.4
+pandas==2.2.2
+
+# ── Notificações ──────────────────────────────────────
+twilio==9.0.4
+
+# ── Pydantic ──────────────────────────────────────────
+pydantic==2.6.4
+pydantic[email]==2.6.4
+langchain-openai==0.1.7

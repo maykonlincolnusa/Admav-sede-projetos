@@ -1,0 +1,26 @@
+services:
+  mongodb:
+    image: mongo:7
+    container_name: admav-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    restart: unless-stopped
+
+  api:
+    build: .
+    container_name: admav-ai-church-api
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017
+      TZ: America/Sao_Paulo
+    depends_on:
+      - mongodb
+    restart: unless-stopped
+
+volumes:
+  mongo_data:
