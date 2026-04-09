@@ -11,65 +11,65 @@
 ╚═╝  ╚═╝╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝  ╚═══╝  
 ```
 
-### Product Portfolio · Ecosystem Overview
+**Portfólio de Produtos · Visão Geral do Ecossistema**
 
 <br/>
 
-[![Status](https://img.shields.io/badge/Status-Active%20Development-0a0a0a?style=for-the-badge&labelColor=0a0a0a&color=4ade80)](.)
+[![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento%20Ativo-0a0a0a?style=for-the-badge&labelColor=0a0a0a&color=4ade80)](.)
 [![Stack](https://img.shields.io/badge/Stack-React%20·%20FastAPI%20·%20MongoDB-0a0a0a?style=for-the-badge&labelColor=0a0a0a&color=60a5fa)](.)
-[![AI](https://img.shields.io/badge/AI-RAG%20·%20LangGraph%20·%20Multiagent-0a0a0a?style=for-the-badge&labelColor=0a0a0a&color=a78bfa)](.)
+[![IA](https://img.shields.io/badge/IA-RAG%20·%20LangGraph%20·%20Multiagente-0a0a0a?style=for-the-badge&labelColor=0a0a0a&color=a78bfa)](.)
 [![Deploy](https://img.shields.io/badge/Deploy-Docker%20·%20Railway-0a0a0a?style=for-the-badge&labelColor=0a0a0a&color=f472b6)](.)
+
+<br/>
 
 </div>
 
+---
+
+<br/>
+
+## Sobre Este Repositório
+
+Este repositório organiza, em formato de portfólio, os principais projetos e protótipos desenvolvidos no ecossistema ADMAV. O objetivo não é publicar tudo — é registrar com clareza o contexto de cada trabalho, a direção de produto e o recorte técnico que faz sentido apresentar publicamente.
+
+Alguns projetos já estão em estágio de MVP funcional. Outros ainda estão em exploração visual, validação de arquitetura ou prototipação. Este repositório funciona como um **snapshot curado** do que vale apresentar no GitHub neste momento.
+
 <br/>
 
 ---
 
 <br/>
 
-## Overview
+## O Que é Construído Aqui
 
-This repository organizes, in portfolio format, the main projects and prototypes developed within the ADMAV ecosystem. The goal is not to publish everything — it is to register with clarity the context of each work, the product direction, and the technical scope that makes sense to show publicly.
-
-Some projects are already at a functional MVP stage. Others are still in visual exploration, architecture validation, or prototyping. This repository works as a **curated snapshot** of what is worth presenting on GitHub right now.
-
-<br/>
-
----
-
-<br/>
-
-## What Gets Built Here
-
-The projects here orbit three main fronts:
+Os projetos reunidos aqui orbitam três frentes principais:
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                                                             │
-│   ◆  AI applied to service, operations, and context        │
-│      intelligence.                                          │
-│                                                             │
-│   ◆  Internal products focused on automation, semantic      │
-│      memory, and assisted experience.                        │
-│                                                             │
-│   ◆  Premium interfaces for specific niches, with strong    │
-│      visual identity and positioning.                        │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────┐
+│                                                                 │
+│   ◆  IA aplicada a atendimento, operação e inteligência        │
+│      de contexto.                                               │
+│                                                                 │
+│   ◆  Produtos internos com foco em automação, memória           │
+│      semântica e experiência assistida.                          │
+│                                                                 │
+│   ◆  Interfaces premium para nichos específicos, com forte      │
+│      preocupação de posicionamento e identidade visual.          │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 <br/>
 
-**Recurring technical pattern across the portfolio:**
+**Padrão técnico recorrente no portfólio:**
 
-| Layer | Technologies |
+| Camada | Tecnologias |
 |---|---|
 | **Frontend** | React + Vite |
 | **Backend** | FastAPI · Node/Express |
-| **Persistence** | MongoDB |
-| **AI / Intelligence** | RAG · Embeddings · LangChain · LangGraph · Multiagent orchestration |
-| **Infrastructure** | Docker · Railway |
+| **Persistência** | MongoDB |
+| **IA / Inteligência** | RAG · Embeddings · LangChain · LangGraph · Orquestração multiagente |
+| **Infraestrutura** | Docker · Railway |
 
 <br/>
 
@@ -77,25 +77,25 @@ The projects here orbit three main fronts:
 
 <br/>
 
-## Published Projects
+## Projetos Publicados
 
 <br/>
 
 ### 01 — Yafah
 
-> *AI-powered consulting platform for women entrepreneurs in the beauty and luxury sector.*
+> *Plataforma de consultoria orientada por IA para empreendedoras do setor de beleza e luxo.*
 
-Yafah combines refined branding with practical intelligence for marketing, content, contextual knowledge, and financial visibility. It is the most mature product in this ecosystem in terms of full-stack execution.
+Yafah combina branding refinado com recursos de inteligência prática para marketing, conteúdo, conhecimento contextual e visão financeira. É o produto mais maduro do ecossistema em termos de execução full stack.
 
-**Core features:**
-- Dashboard with dedicated areas for chat, Instagram, TikTok, website, knowledge base, and finances
-- FastAPI backend with routes for auth, registration, chat, admin, feedback, knowledge base, and metrics
-- RAG and contextual memory to personalize responses based on each user's history
-- Full deployment structure with documentation and configuration
+**Principais características:**
+- Dashboard com áreas para chat, Instagram, TikTok, site, base de conhecimento e finanças
+- Backend em FastAPI com rotas para autenticação, cadastro, chat, administração, feedback, knowledge base e métricas
+- RAG e memória contextual para personalizar respostas com base no histórico de cada usuária
+- Estrutura completa de deploy com documentação e organização de configuração
 
 **Stack:** `React` `FastAPI` `MongoDB` `LangChain` `FAISS` `Gemini / OpenRouter` `Docker`
 
-**Status:** `MVP` — Backend, frontend, execution documentation, and deploy organization in place.
+**Status:** `MVP` — Backend, frontend, documentação de execução e organização de deploy no lugar.
 
 <br/>
 
@@ -105,20 +105,20 @@ Yafah combines refined branding with practical intelligence for marketing, conte
 
 ### 02 — O Chefe
 
-> *Multi-agent system for church management, member relations, and institutional operations at ADMAV.*
+> *Sistema multiagente para gestão de igreja, relacionamento com membros e operação institucional da ADMAV.*
 
-At the core of this project is a specialized agent architecture that combines registration, attendance, institutional RAG, automatic devotionals, and per-unit context — all built to serve a distributed, multi-branch religious network.
+No núcleo deste projeto está uma arquitetura de agentes especializados que combina cadastro, atendimento, RAG institucional, devocionais automáticos e contexto por unidade — construído para servir uma rede religiosa distribuída com múltiplas filiais.
 
-**Core features:**
-- FastAPI backend with modular architecture under `app/`
-- LangGraph orchestration with agents: `CadastroAgent`, `WelcomeAgent`, `DevotionalAgent`, `RAGAgent`, `EngagementAgent`, `SecretaryAgent`
-- MongoDB collections for members, knowledge base, and interactions
-- APScheduler for automated flows such as recurring devotionals
-- Initial React frontend for member registration integrated directly with the API
+**Principais características:**
+- Backend em FastAPI com arquitetura modular em `app/`
+- Orquestração com LangGraph e agentes: `CadastroAgent`, `WelcomeAgent`, `DevotionalAgent`, `RAGAgent`, `EngagementAgent`, `SecretaryAgent`
+- Coleções MongoDB para membros, base de conhecimento e interações
+- APScheduler para fluxos automáticos como devocionais recorrentes
+- Frontend inicial em React para cadastro de membros com integração direta à API
 
 **Stack:** `React` `FastAPI` `LangGraph` `MongoDB` `APScheduler` `Docker`
 
-**Status:** `Active` — Backend well-structured with solid domain context. Frontend functional, still evolving.
+**Status:** `Ativo` — Backend bem estruturado com sólido contexto de domínio. Frontend funcional, ainda em evolução.
 
 <br/>
 
@@ -126,34 +126,22 @@ At the core of this project is a specialized agent architecture that combines re
 
 <br/>
 
-### 03 — Kairos
+### 03 — Site Oficial ADMAV
 
-> *Visual concept and digital identity for a creative front aimed at the Christian and institutional context.*
+> *Presença digital institucional da Assembleia de Deus do Ministério Água Viva.*
 
-In this portfolio scope, only the main visual prototype was retained — the one that registers the aesthetic direction and the experience proposal. No interface can be reduced to its functional layer alone; Kairos exists here as a record of that conviction.
+O site oficial da ADMAV é a vitrine pública da rede de igrejas — o primeiro ponto de contato digital para visitantes, novos membros e parceiros institucionais. A proposta vai além de uma página informativa: é uma experiência de identidade que transmite propósito, organização e acolhimento desde o primeiro acesso.
 
-**Core features:**
-- Static prototype with editorial visual language
-- Interface designed for login, registration, and institutional onboarding
-- Exploration of branding, typography, and visual atmosphere with strong creative direction
+**Principais características:**
+- Identidade visual coesa alinhada ao branding institucional da ADMAV
+- Seções para apresentação da rede, programação, liderança e localização das unidades
+- Integração planejada com os sistemas internos do ecossistema (O Chefe, Kairos)
+- Arquitetura leve com foco em performance, acessibilidade e SEO
+- Estrutura preparada para evolução progressiva com CMS e conteúdo dinâmico
 
-**Status:** `Exploration` — The full-stack scaffold exists locally but is not yet ready for public presentation.
+**Stack:** `React` `Vite` `TailwindCSS`
 
-<br/>
-
----
-
-<br/>
-
-## Out of Scope — Mapped but Not Published
-
-Not everything in the original folder was published here. Some material is still visual reference, initial study, or technical draft without enough density for public portfolio.
-
-**Deliberately left out:**
-
-- **Ezer** — contains only reference and visual support material at this stage
-- **Official site** — still closer to a study than a presentable implementation
-- Loose experiment files, isolated mocks, and screens not integrated into any main product flow
+**Status:** `Em Desenvolvimento` — Direção de produto definida, implementação em andamento com foco em presença pública e integração ao ecossistema.
 
 <br/>
 
@@ -161,22 +149,18 @@ Not everything in the original folder was published here. Some material is still
 
 <br/>
 
-## Curation Criteria
+### 04 — Kairos
 
-The rule was simple: **publish what helps someone understand vision, architecture, and execution capacity. Do not publish what adds noise or risk.**
+> *Conceito de produto e identidade digital para uma frente criativa voltada ao contexto cristão e institucional.*
 
-**Kept:**
-- Relevant source code
-- Backend and frontend structures that demonstrate the product proposition
-- Existing documentation and configuration files useful for understanding the project
-- Artifacts that demonstrate product direction and technical solutions
+Neste recorte de portfólio, foi mantido apenas o protótipo visual principal — aquele que registra a direção estética e a proposta de experiência. Nenhuma interface se reduz apenas à sua camada funcional; Kairos existe aqui como registro dessa convicção.
 
-**Omitted:**
-- `.env` files and credentials
-- API keys exposed in local files
-- `node_modules`, builds, caches, logs, and local databases
-- Machine learning artifacts and execution-generated files
-- Folders with visual reference material only
+**Principais características:**
+- Protótipo estático com linguagem visual editorial
+- Interface pensada para login, cadastro e ambientação institucional
+- Exploração de branding, tipografia e atmosfera visual com forte apelo de direção criativa
+
+**Status:** `Exploração` — O scaffold full stack existe localmente, mas ainda não está maduro o suficiente para apresentação pública.
 
 <br/>
 
@@ -184,21 +168,63 @@ The rule was simple: **publish what helps someone understand vision, architectur
 
 <br/>
 
-## Repository Structure
+## Mapeados, Mas Fora do Escopo Desta Publicação
+
+Nem tudo o que existe na pasta original foi publicado. Parte do material ainda é referência visual, estudo inicial ou rascunho técnico sem densidade suficiente para portfólio público.
+
+**Deliberadamente omitidos:**
+
+- **Ezer** — contém apenas material de apoio e referência visual nesta fase
+- Arquivos soltos de experimento, mocks isolados e telas não integradas ao fluxo principal dos produtos
+
+<br/>
+
+---
+
+<br/>
+
+## Critério de Curadoria
+
+A regra foi simples: **publicar o que ajuda a entender visão, arquitetura e capacidade de execução. Não publicar o que apenas adiciona ruído ou risco.**
+
+**Mantido:**
+- Código-fonte relevante
+- Estruturas de backend e frontend que mostram a proposta dos produtos
+- Documentação já existente e arquivos de configuração úteis para compreensão dos projetos
+- Artefatos que demonstram direção de produto e solução técnica
+
+**Omitido:**
+- Arquivos `.env` e credenciais
+- Chaves de API expostas em arquivos locais
+- `node_modules`, builds, caches, logs e bancos locais
+- Artefatos de machine learning e arquivos gerados em execução
+- Pastas com material apenas de referência visual
+
+<br/>
+
+---
+
+<br/>
+
+## Estrutura do Repositório
 
 ```text
 .
 ├── README.md
 │
-├── Yafah/                  ← AI consulting platform for the beauty sector
+├── Yafah/                    ←  Plataforma de consultoria com IA para o setor de beleza
 │   ├── backend/
 │   └── frontend/
 │
-├── O chefe/                ← Multi-agent church management system
+├── O chefe/                  ←  Sistema multiagente de gestão de igreja
 │   ├── app/
 │   └── frontend/
 │
-└── kairos/                 ← Visual concept and institutional identity
+├── site-oficial/             ←  Presença digital institucional da ADMAV
+│   ├── src/
+│   └── public/
+│
+└── kairos/                   ←  Conceito visual e identidade institucional
     └── prototype/
 ```
 
@@ -208,24 +234,24 @@ The rule was simple: **publish what helps someone understand vision, architectur
 
 <br/>
 
-## Final Notes
+## Considerações Finais
 
 <div align="center">
 
-*This repository is a curated version of the work — designed for public presentation on GitHub.*
+*Este repositório é uma versão curada do trabalho — pensada para apresentação pública no GitHub.*
 
-*Some projects continue to evolve locally and may contain open paths,*
-*but the set already shows with clarity the product lines, technical decisions,*
-*and the type of solution being built.*
+*Alguns projetos continuam evoluindo localmente e podem conter caminhos em aberto,*
+*mas o conjunto já mostra com clareza as linhas de produto, as decisões técnicas*
+*e o tipo de solução que vem sendo construído.*
 
 <br/>
 
-As maturity grows, the natural next step is splitting the most advanced projects into their own repositories. For now, this portfolio works as a consolidated window into the ecosystem.
+À medida que a maturidade cresce, o próximo passo natural é separar os projetos mais avançados em repositórios próprios. Por enquanto, este portfólio funciona como uma vitrine consolidada do ecossistema.
 
 <br/>
 
 ---
 
-**ADMAV Ecosystem** · Built with intentionality.
+**Ecossistema ADMAV** · Construído com intencionalidade.
 
 </div>
